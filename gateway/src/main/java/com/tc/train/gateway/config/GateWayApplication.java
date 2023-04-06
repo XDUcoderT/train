@@ -1,4 +1,4 @@
-package com.tc.train.config;
+package com.tc.train.gateway.config;
 
 
 import org.slf4j.Logger;
