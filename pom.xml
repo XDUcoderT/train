@@ -29,6 +29,8 @@
         <netty-resolver-dns-native-macos.version>4.1.75.Final</netty-resolver-dns-native-macos.version>
         <lombok.version>1.18.12</lombok.version>
         <commons-lang3.version>3.9</commons-lang3.version>
+        <mybatis-spring-boot-stater.version>3.0.0</mybatis-spring-boot-stater.version>
+        <mysql-connetor-java.version>8.0.22</mysql-connetor-java.version>
     </properties>
 
     <dependencyManagement>
@@ -84,6 +86,20 @@
                 <artifactId>commons-lang3</artifactId>
                 <version>${commons-lang3.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring-boot-stater.version}</version>
+            </dependency>
+            <!-- 集成mysql连接 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connetor-java.version}</version>
+            </dependency>
+
+
         </dependencies>
     </dependencyManagement>
 
