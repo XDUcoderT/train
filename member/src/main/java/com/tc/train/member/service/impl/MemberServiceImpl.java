@@ -1,6 +1,8 @@
 package com.tc.train.member.service.impl;
 
 import cn.hutool.core.collection.CollUtil;
+import com.tc.train.common.exception.BusinessException;
+import com.tc.train.common.exception.BusinessExceptionEnum;
 import com.tc.train.member.domain.Member;
 import com.tc.train.member.domain.MemberExample;
 import com.tc.train.member.mapper.MemberMapper;
@@ -30,7 +32,7 @@ public class MemberServiceImpl implements MemberService {
         List<Member> list = memberMapper.selectByExample(memberExample);
         if(CollUtil.isNotEmpty((list))){
             //return list.get(0).getId();
-            throw new RuntimeException("手机号已注册");
+            throw new BusinessException(BusinessExceptionEnum.MEMBER_MOBILE_EXIST);
         }
         Member member = new Member();
         member.setId(System.currentTimeMillis());
