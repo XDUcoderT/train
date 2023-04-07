@@ -3,6 +3,7 @@ package com.tc.train.member.service.impl;
 import cn.hutool.core.collection.CollUtil;
 import com.tc.train.common.entity.enums.BusinessExceptionEnum;
 import com.tc.train.common.entity.exception.BusinessException;
+import com.tc.train.common.util.SnowUtil;
 import com.tc.train.member.domain.Member;
 import com.tc.train.member.domain.MemberExample;
 import com.tc.train.member.mapper.MemberMapper;
@@ -36,7 +37,7 @@ public class MemberServiceImpl implements MemberService {
         }
 
         Member member = new Member();
-        member.setId(System.currentTimeMillis());
+        member.setId(SnowUtil.getSnowflakeNextId());
         member.setMobile(mobile);
         memberMapper.insert(member);
         return member.getId();
