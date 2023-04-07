@@ -1,4 +1,4 @@
-package com.tc.train.common.exception;
+package com.tc.train.common.entity.enums;
 
 public enum BusinessExceptionEnum {
     MEMBER_MOBILE_EXIST("手机号已注册");
