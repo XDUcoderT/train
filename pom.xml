@@ -27,6 +27,8 @@
         <spring-boot-starter-aop.version>2.7.7</spring-boot-starter-aop.version>
         <common.version>0.0.1-SNAPSHOT</common.version>
         <netty-resolver-dns-native-macos.version>4.1.75.Final</netty-resolver-dns-native-macos.version>
+        <lombok.version>1.18.12</lombok.version>
+        <commons-lang3.version>3.9</commons-lang3.version>
     </properties>
 
     <dependencyManagement>
@@ -69,6 +71,18 @@
                 <version>${netty-resolver-dns-native-macos.version}</version>
                 <classifier>osx-aarch_64</classifier>
                 <scope>runtime</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
