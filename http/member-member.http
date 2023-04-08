@@ -6,9 +6,11 @@ Accept: application/json
 POST http://localhost:8000/member/member/register
 Content-Type: application/x-www-form-urlencoded
 
-mobile=1222333
+mobile=12223354353
 
 
 ###
-http://localhost:8000/member/member/count
-Accept: application/json
+POST http://localhost:8000/member/member/send-code
+Content-Type: application/x-www-form-urlencoded
+
+mobile=17709871734
