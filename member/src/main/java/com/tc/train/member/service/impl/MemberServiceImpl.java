@@ -3,10 +3,9 @@ package com.tc.train.member.service.impl;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ObjectUtil;
-import cn.hutool.jwt.JWTUtil;
-import com.tc.train.common.entity.constants.JWTConstants;
 import com.tc.train.common.entity.enums.BusinessExceptionEnum;
 import com.tc.train.common.entity.exception.BusinessException;
+import com.tc.train.common.util.JwtUtil;
 import com.tc.train.common.util.SnowUtil;
 import com.tc.train.member.domain.Member;
 import com.tc.train.member.domain.MemberExample;
@@ -23,7 +22,6 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -105,9 +103,8 @@ public class MemberServiceImpl implements MemberService {
         }
 
         MemberLoginResp memberLoginResp = BeanUtil.copyProperties(memberDB, MemberLoginResp.class);
-        Map<String, Object> payloadMap = BeanUtil.beanToMap(memberLoginResp);
-        String key = JWTConstants.KEY;
-        String token = JWTUtil.createToken(payloadMap, key.getBytes());
+
+        String token = JwtUtil.createToken(memberDB.getId(), mobile);
         memberLoginResp.setToken(token);
         return memberLoginResp;
     }
