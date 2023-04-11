@@ -2,14 +2,12 @@ package com.tc.train.member.req;
 
 import com.tc.train.common.entity.constants.ValidationConstant;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
 import java.util.Date;
 
 public class PassengerSaveOrUpdateReq {
     private Long id;
 
-    @NotNull(message = ValidationConstant.MEMBER_ID_NOT_NULL)
     private Long memberId;
 
     @NotBlank(message = ValidationConstant.NAME_NOT_NULL)
