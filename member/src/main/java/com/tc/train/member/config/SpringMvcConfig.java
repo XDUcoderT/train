@@ -1,5 +1,6 @@
 package com.tc.train.member.config;
 
+import com.tc.train.common.interceptor.LogInterceptor;
 import com.tc.train.common.interceptor.MemberInterceptor;
 import jakarta.annotation.Resource;
 import org.springframework.context.annotation.Configuration;
@@ -12,11 +13,14 @@ public class SpringMvcConfig implements WebMvcConfigurer {
    @Resource
     MemberInterceptor memberInterceptor;
 
+   @Resource
+   LogInterceptor logInterceptor;
+
    @Override
    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(logInterceptor);
 
-
-       registry.addInterceptor(memberInterceptor)
+        registry.addInterceptor(memberInterceptor)
                .addPathPatterns("/**")
                .excludePathPatterns(
                        "/member/hello",
