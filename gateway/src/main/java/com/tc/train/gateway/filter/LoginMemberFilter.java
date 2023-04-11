@@ -1,7 +1,7 @@
 package com.tc.train.gateway.filter;
 
 
-import com.tc.train.common.util.JwtUtil;
+import com.tc.train.gateway.entity.JwtUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
