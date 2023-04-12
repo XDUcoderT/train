@@ -1,7 +1,7 @@
 package com.tc.train.common.context;
 
 
-import com.tc.train.common.resp.MemberGlobalInfo;
+import com.tc.train.common.entity.globalInfo.MemberGlobalInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

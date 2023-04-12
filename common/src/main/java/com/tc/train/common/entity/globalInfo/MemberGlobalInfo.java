@@ -1,4 +1,4 @@
-package com.tc.train.common.resp;
+package com.tc.train.common.entity.globalInfo;
 
 import lombok.Data;
 

@@ -8,5 +8,9 @@ public class ValidationConstant {
     public static final String PASSENGER_TYPE_NOT_NULL = "【旅客类型】不能为空";
     public static final String VALIDATIONCODE_NOT_NULL = "【验证码】不能为空";
     public static final String MOBILE_PATTERN_ERROR = "手机号码格式错误";
+    public static final String PAGE_NOT_NULL = "【页码】不能为空";
+    public static final String PAGESIZE_NOT_NULL = "【每页条数】不能为空";
+    public static final String PAGESIZE_NOT_OVER_100 = "【每页条数】不能超过100";
+
 
 }

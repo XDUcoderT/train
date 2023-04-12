@@ -40,7 +40,7 @@ public class PassengerServiceImpl implements PassengerService {
         if(ObjectUtil.isNotNull(req.getMemberId())){
             criteria.andMemberIdEqualTo(req.getMemberId());
         }
-        PageHelper.startPage(2,2);
+        PageHelper.startPage(req.getPage(),req.getSize());
         List<Passenger> passengers = passengerMapper.selectByExample(passengerExample);
         List<PassengerQueryResp> passengerQueryRespList = BeanUtil.copyToList(passengers, PassengerQueryResp.class);
         return passengerQueryRespList;
