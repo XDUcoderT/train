@@ -1,5 +1,6 @@
 package com.tc.train.member.req;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.tc.train.common.entity.constants.ValidationConstant;
 import jakarta.validation.constraints.NotBlank;
 
@@ -19,8 +20,9 @@ public class PassengerSaveOrUpdateReq {
     @NotBlank(message = ValidationConstant.PASSENGER_TYPE_NOT_NULL)
     private String type;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;
-
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date updateTime;
 
     public Long getId() {

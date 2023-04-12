@@ -31,11 +31,16 @@ public class PassengerServiceImpl implements PassengerService {
     public void save(PassengerSaveOrUpdateReq req) {
         DateTime now = DateTime.now();
         Passenger passenger = BeanUtil.copyProperties(req, Passenger.class);
-        passenger.setId(SnowUtil.getSnowflakeNextId());
-        passenger.setMemberId(LoginMemberContext.getId());
-        passenger.setCreateTime(now);
-        passenger.setUpdateTime(now);
-        passengerMapper.insert(passenger);
+        if(ObjectUtil.isNull(passenger.getId())){
+            passenger.setId(SnowUtil.getSnowflakeNextId());
+            passenger.setMemberId(LoginMemberContext.getId());
+            passenger.setCreateTime(now);
+            passenger.setUpdateTime(now);
+            passengerMapper.insert(passenger);
+        }else{
+            passenger.setUpdateTime(now);
+            passengerMapper.updateByPrimaryKey(passenger);
+        }
     }
 
     @Override
@@ -57,6 +62,11 @@ public class PassengerServiceImpl implements PassengerService {
         listPageResp.setTotal(pageInfo.getTotal());
         listPageResp.setList(list);
         return listPageResp;
+    }
+
+    @Override
+    public void delete(Long id) {
+        passengerMapper.deleteByPrimaryKey(id);
     }
 
 }
