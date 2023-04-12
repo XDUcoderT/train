@@ -15,10 +15,10 @@ import com.tc.train.member.req.MemberRegisterReq;
 import com.tc.train.member.req.MemberSendCodeReq;
 import com.tc.train.member.resp.MemberLoginResp;
 import com.tc.train.member.service.MemberService;
+import com.tc.train.member.utils.RedisUtil;
 import jakarta.annotation.Resource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,8 +26,8 @@ import java.util.List;
 @Service
 public class MemberServiceImpl implements MemberService {
 
-    private StringRedisTemplate stringRedisTemplate;
-
+    @Resource
+    private RedisUtil redisUtil;
     private
     Logger log = LoggerFactory.getLogger(MemberServiceImpl.class);
 
